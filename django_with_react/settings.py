@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'instagram',
     'django_extensions',
+    'bootstrap4',
     'accounts',
 ]
 
@@ -45,7 +46,10 @@ ROOT_URLCONF = 'django_with_react.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # File System Template Loader
+            os.path.join(BASE_DIR,'django_with_react','templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

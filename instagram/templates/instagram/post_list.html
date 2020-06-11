@@ -1,3 +1,5 @@
+{% load bootstrap4 %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,6 +18,9 @@
             {% for post in post_list %}
             <tr>
                 <td>
+                    {{post.pk}}
+                </td>
+                <td>
                     {{post.message}}
                 </td>
                 <td>
@@ -29,5 +34,10 @@
             {% endfor %}
         </tbody>
     </table>
+    {{ is_paginated }}
+    {{ page_obj }}
+    {% if is_paginated %}
+        {% bootstrap_pagination page_obj pages_to_show=9 size="small" justify_content="center" %}
+    {% endif %}
 </body>
 </html>
